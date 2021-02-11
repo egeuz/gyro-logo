@@ -1,12 +1,29 @@
+const permissionButton = document.getElementById("permission")
+permissionButton.addEventListener("click", requestOrientationPermission)
 
-document.getElementById("permission").addEventListener("click", (e) => {
-  DeviceOrientationEvent.requestPermission()
+function requestOrientationPermission() {
+  if (
+    typeof( DeviceOrientationEvent ) !== "undefined" &&
+    typeof( DeviceOrientationEvent.requestPermission !== "undefined")
+  ) {
+    DeviceOrientationEvent.requestPermission()
     .then(response => {
-      if (response == 'granted')
-        window.addEventListener("deviceorientation", handleOrientation, true)
+      if (response == "granted") {
+        window.addEventListener("deviceorientation", handleOrientation)
+      }
     })
     .catch(console.error)
-})
+  }
+}
+
+// document.getElementById("permission").addEventListener("click", (e) => {
+//   DeviceOrientationEvent.requestPermission()
+//     .then(response => {
+//       if (response == 'granted')
+//         window.addEventListener("deviceorientation", handleOrientation, true)
+//     })
+//     .catch(console.error)
+// })
 
 function handleOrientation(event) {
   console.log(event.absolute)
