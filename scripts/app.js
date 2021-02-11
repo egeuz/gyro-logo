@@ -1,13 +1,19 @@
 
 
-window.addEventListener("deviceorientation", handleOrientation, true)
+DeviceOrientationEvent.requestPermission()
+  .then(response => {
+    if (response == 'granted')
+      window.addEventListener("deviceorientation", handleOrientation, true)
+  })
+  .catch(console.error)
+
 
 function handleOrientation(event) {
   console.log(event.absolute)
   console.log(event.alpha)
   console.log(event.beta)
   console.log(event.gamma)
-} 
+}
 
 function setup() {
   const canvas = createCanvas(500, 500).parent("canvas")
