@@ -1,4 +1,13 @@
-console.log(window.DeviceMotionEvent)
+
+
+window.addEventListener("deviceorientation", handleOrientation, true)
+
+function handleOrientation(event) {
+  console.log(event.absolute)
+  console.log(event.alpha)
+  console.log(event.beta)
+  console.log(event.gamma)
+} 
 
 function setup() {
   const canvas = createCanvas(500, 500).parent("canvas")
