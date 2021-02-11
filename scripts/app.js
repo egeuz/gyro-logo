@@ -13,6 +13,7 @@ function handleOrientation(event) {
   console.log(event.alpha)
   console.log(event.beta)
   console.log(event.gamma)
+  document.getElementById("data").innerHTML = `alpha: ${event.alpha}, beta: ${event.beta}, gamma: ${event.gamma}`
 }
 
 // function setup() {
