@@ -1,12 +1,12 @@
 
-
-DeviceOrientationEvent.requestPermission()
-  .then(response => {
-    if (response == 'granted')
-      window.addEventListener("deviceorientation", handleOrientation, true)
-  })
-  .catch(console.error)
-
+document.getElementById("permission").addEventListener("click", (e) => {
+  DeviceOrientationEvent.requestPermission()
+    .then(response => {
+      if (response == 'granted')
+        window.addEventListener("deviceorientation", handleOrientation, true)
+    })
+    .catch(console.error)
+})
 
 function handleOrientation(event) {
   console.log(event.absolute)
